@@ -13,3 +13,14 @@ Obiettivi:
 - Lavorare tutti nello stesso ambiente
 - Schermata di Benvenuto(Sabato)
 - Schermata del gioco(Domenica)
+
+index.html
+	|
+	|
+	------ BiancaPage.html
+	|
+	|
+	------ MuaremPage.html
+	|
+	|
+	------ GiocoPage.html
