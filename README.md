@@ -14,6 +14,6 @@ Obiettivi:
 - Schermata di Benvenuto(Sabato)
 - Schermata del gioco(Domenica)
 
-index.html: schermata di benvenuto, login(player 1 e player 2) porta alla schermata del gioco
-credits.html: chi ha fatto il progetto, animazioni e effetti carini
-winLose.html: winLose screen
+index.html: schermata di benvenuto, login(player 1 e player 2) porta alle varie schermate del sito
+credits.html: chi ha fatto il progetto, animazioni effetti e redirect verso
+winLose.html: messaggi di vittoria/pareggio, reset, nuova partita
