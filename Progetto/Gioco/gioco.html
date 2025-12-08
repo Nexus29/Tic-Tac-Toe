@@ -4,8 +4,26 @@
 		<title>gioco</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 		<strong>GIOCO</strong><br>
+		<label for="">Giocatore 1 scegli il tuo nome</label>
+		<input type="text" placeholder="Giocatore1" id="player1">
+		<input type="text" placeholder="Giocatore2" id="player2">
+
+		<div id="container">
+			<div class="grid"></div>
+			<div class="grid"></div>
+			<div class="grid"></div>
+			<div class="grid"></div>
+			<div class="grid"></div>
+			<div class="grid"></div>
+			<div class="grid"></div>
+			<div class="grid"></div>
+			<div class="grid"></div>
+		</div>
+		<button onclick="nextMove()" id="btn">prova</button>
+		<script src="gioco.js"></script>
 	</body>
 </html>
