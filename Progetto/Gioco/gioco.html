@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="it">
 	<head>
-		<title>gioco</title>
+		<title>Tic Tac Toe</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<strong>GIOCO</strong><br>
-		<label for="">Giocatore 1 scegli il tuo nome</label>
-		<input type="text" placeholder="Giocatore1" id="player1">
-		<input type="text" placeholder="Giocatore2" id="player2">
-
-		<div id="container">
-			<div class="grid"></div>
-			<div class="grid"></div>
-			<div class="grid"></div>
-			<div class="grid"></div>
-			<div class="grid"></div>
-			<div class="grid"></div>
-			<div class="grid"></div>
-			<div class="grid"></div>
-			<div class="grid"></div>
-		</div>
-		<button onclick="nextMove()" id="btn">prova</button>
+<!-- questi placeholder verrano poi sostituiti da un input preso dalla pagina di benvenuto -->
+		<!-- <section>
+			<strong>Scelta nomi player:</strong>
+			<input type="text" placeholder="Giocatore1" id="player1">
+			<input type="text" placeholder="Giocatore2" id="player2">
+		</section> -->
+<!-- #################################################################### -->
+		<section>
+			<div class="board">
+				<div class="cell" id="1"></div>
+				<div class="cell" id="2"></div>
+				<div class="cell" id="3"></div>
+				<div class="cell" id="4"></div>
+				<div class="cell" id="5"></div>
+				<div class="cell" id="6"></div>
+				<div class="cell" id="7"></div>
+				<div class="cell" id="8"></div>
+				<div class="cell" id="9"></div>
+			</div>
+			<button id="newGameButton" onclick="newGame()">Nuova Partita</button>
+		</section>
 		<script src="gioco.js"></script>
 	</body>
 </html>
+
+<!-- Per me questo e' il file html finito come l'abbiamo discusso aggiunto una section
+ per dividere meglio i vari blocchi -->

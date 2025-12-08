@@ -1,52 +1,68 @@
-let player1 = document.getElementById("player1");
-let player2 = document.getElementById("player2");
-let btn = document.getElementById("btn");
+let currentPlayer = 'X';
+let gameActive = true;
+const winningCombos = [
+	[1, 2, 3], [4, 5, 6], [7, 8, 9], // Righe
+	[1, 4, 7], [2, 5, 8], [3, 6, 9], // Colonne
+	[1, 5, 9], [3, 5, 7]             // Diagonali
+];
+const cells = Array.from(document.querySelectorAll('.cell')); 
+const statusDisplay = document.querySelector('#gameStatus');
 
-let grid = document.querySelector(".grid");
-let container = document.getElementById("container");
-var turn = 1;
-var symbols = "X";
-
-// var gridTris = [
-//     [0, 0, 0],
-//     [0, 0, 0],
-//     [0, 0, 0]
-// ];
-
-function startGame(container, turn, symbols){
-    for(var i = 0; i < container.length; i++)
-    {
-        container[i].textContent = "";
-    }
-
-    turn = 1;
-    symbols = "X";
-    // if(turn % 2 == 1)
-    // {
-    //     symbols = "X";
-    //     turn++;
-    // }
-    // else
-    // {
-    //     symbols = "O";
-    //     turn++;
-    // }
-}
-const terzoDiv = document.querySelector('#container > .grid:nth-child(3)');
-// terzoDiv.addEventListener(onclick , (turn , symbols)=>{
-    
-//         if(container.textContent == "")
-//             container.textContent = symbols;
-//         nextTurn(turn, symbols);
-//     }
-// );
-
-function nextMove(turn, symbols){
-    if(container.textContent == "")
-            container.textContent = symbols;
-       // nextTurn(turn, symbols);
+// Utility
+function newGame()
+{
+	gameActive = true;
+	cells.forEach(cell => {
+		cell.textContent = '';
+		cell.classList.remove('x', 'o');
+	});
+	currentPlayer = 'X';
+	updateStatusDisplay(`Inizia la X!`);
 }
 
-startGame(container, turn, symbols);
-btn.onclick(nextMove(turn, symbols));
-// use the table with image
+function updateStatusDisplay(message)
+{
+	if (statusDisplay)
+		statusDisplay.textContent = message;
+	else
+		console.log(`Stato: ${message}`);
+}
+
+// Possibili out della partita
+function checkWin()
+{
+	return winningCombos.some(combo => {
+		return combo.every(pos => {
+			const cellElement = document.getElementById(pos);
+			// Verifica che la cella esista e che il contenuto della cella corrisponda al giocatore attuale
+			return cellElement && cellElement.textContent === currentPlayer;
+		});
+	});
+}
+
+function checkDraw() {return cells.every(cell => cell.textContent !== '');}
+
+function handleCellClick()
+{
+	if (!gameActive || this.textContent !== '') return;
+	this.textContent = currentPlayer;
+	this.classList.add(currentPlayer.toLowerCase());
+	if (checkWin())
+	{
+		gameActive = false;
+		updateStatusDisplay(`🎉 Vittoria di ${currentPlayer}!`);
+		return;
+	}
+	if (checkDraw())
+	{
+		gameActive = false;
+		updateStatusDisplay(`🤝 Partita Terminata in Pareggio!`);
+		return;
+	}
+	currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
+	updateStatusDisplay(`Turno del giocatore ${currentPlayer}`);
+}
+
+// MAIN
+cells.forEach(cell => {cell.addEventListener('click', handleCellClick);});
+updateStatusDisplay(`Inizia la X!`);
