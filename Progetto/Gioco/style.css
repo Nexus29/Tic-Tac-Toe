@@ -66,6 +66,7 @@ body {
   border-radius: 12px;
   font-weight: bolder;
   font-size: 60px;
+  transition: 0.25s ease;
 }
 
 .grid .cell:hover {
@@ -87,7 +88,6 @@ body {
     0 0 7px #7451fe,
     0 0 10px #7451fe,
     0 0 21px #7451fe;
-    
     border: 2px solid  #4800ff;
 }
 
@@ -108,8 +108,8 @@ body {
 }
 
 .players .x{
-  border-radius: 12px;
-  background: red;
+  background: rgba(255, 0, 0, 0.718);
+  border-radius: 0; /* FIX */
   color:white;
   text-shadow:
     0 0 7px #ffffff,
@@ -118,8 +118,9 @@ body {
 
 .players .o{
   color:white;
-  background: blue;
-  border-radius: 12px;
+  background: rgba(1, 1, 255, 0.704);
+   border-radius: 0; /* FIX */
+
   text-shadow:
     0 0 7px #ffffff,
     0 0 10px #ffffff;
@@ -128,7 +129,18 @@ body {
 .players .player{
   padding: 20px;
   font-size: 20px;
-  
+  display:flex;
+  align-items: center;
+  color: white;
+}
+.players .x {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.players .o {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .grid #newGameButton {
