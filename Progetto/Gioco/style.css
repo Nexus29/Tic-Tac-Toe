@@ -14,9 +14,9 @@ body,html{height:100%;scroll-behavior:smooth}
 
 /* In questo purtroppo non sono bravo ho creato la tabella e lasciato un setup per fare cose */
 body {
-  font-style: oblique;
   color: #000000;
   background: rgb(33, 36, 50);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .grid{
@@ -36,10 +36,10 @@ body {
     border-radius: 12px;  
     margin: 200px auto;
     box-shadow:
-    0 0 5px #fff, /* Alone bianco interno/vicino al bordo */
-    0 0 10px #fff,
-    0 0 15px #00cfff, /* Bagliore principale azzurro */
-    inset 0 0 5px #00cfff;
+      0 0 5px #ff0000,
+      0 0 10px #2f00ff,
+      0 0 15px #3300ff,
+      inset 0 0 5px #ff0000;
 }
 
 /* Per modificare le celle */
@@ -52,17 +52,33 @@ body {
     align-items: center;
     cursor: pointer;
     border-radius: 12px;
+    font-weight: bolder;
+    font-size: 60px;
 }
 
 .grid .cell:hover {
   transform: scale(1.05);
-
 }
 
 .grid .cell.x{
-  
+  color: #ff0000;
+  text-shadow:
+    /* White glow */
+    0 0 7px #fe5151,
+    0 0 10px #fe5151,
+    0 0 21px #fe5151;
 }
 
-/* #newGameButton {
-  Per lavorare con il tastino nuova partita
-} */
+.grid .cell.o{
+  color: #4800ff;
+  text-shadow:
+    /* White glow */
+    0 0 7px #7451fe,
+    0 0 10px #7451fe,
+    0 0 21px #7451fe;
+}
+
+#newGameButton {
+  border-radius: 12px;
+  padding: 5px 30px;
+}
