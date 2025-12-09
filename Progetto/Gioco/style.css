@@ -46,7 +46,7 @@ body {
   background: rgb(49, 56, 85);
   padding: 30px 20px;
   border-radius: 12px;  
-  margin: 50px auto;
+  margin: 25px auto;
   box-shadow:
     0 0 5px #ff0000,
     0 0 10px #2f00ff,
@@ -78,6 +78,7 @@ body {
     0 0 7px #fe5151,
     0 0 10px #fe5151,
     0 0 21px #fe5151;
+    border: 2px solid #ff0000;
 }
 
 .grid .cell.o{
@@ -86,6 +87,48 @@ body {
     0 0 7px #7451fe,
     0 0 10px #7451fe,
     0 0 21px #7451fe;
+    
+    border: 2px solid  #4800ff;
+}
+
+.grid .players{
+  display: flex;
+  border-radius: 12px;
+   box-shadow:
+    0 0 5px #4800ff,
+    0 0 10px #2f00ff,
+    0 0 15px #3300ff,
+    inset 0 0 5px #ff0000;
+}
+
+.players .symbol{
+  padding: 10px;
+  font-weight: bolder;
+  font-size: 60px;
+}
+
+.players .x{
+  border-radius: 12px;
+  background: red;
+  color:white;
+  text-shadow:
+    0 0 7px #ffffff,
+    0 0 10px #ffffff;
+}
+
+.players .o{
+  color:white;
+  background: blue;
+  border-radius: 12px;
+  text-shadow:
+    0 0 7px #ffffff,
+    0 0 10px #ffffff;
+}
+
+.players .player{
+  padding: 20px;
+  font-size: 20px;
+  
 }
 
 .grid #newGameButton {
@@ -97,13 +140,12 @@ body {
   border: 2px solid #ff0000;
   border-radius: 12px; /* Bordi stondati */
   cursor: pointer;
-
   box-shadow:
     0 0 5px #ff0000,
     0 0 10px #2f00ff,
     0 0 15px #3300ff,
     inset 0 0 5px #ff0000;
-
+  margin-top: 30px;
   transition: 0.25s ease;
   
 }
@@ -117,9 +159,4 @@ body {
     0 0 40px rgba(50, 0, 255, 0.6);
   transform: translateY(-2px);
   
-}
-
-.grid .players{
-  display: flex;
-  padding: 20px;
 }
