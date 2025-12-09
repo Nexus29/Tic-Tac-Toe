@@ -7,14 +7,8 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-<!-- questi placeholder verrano poi sostituiti da un input preso dalla pagina di benvenuto -->
-		<!-- <section>
-			<strong>Scelta nomi player:</strong>
-			<input type="text" placeholder="Giocatore1" id="player1">
-			<input type="text" placeholder="Giocatore2" id="player2">
-		</section> -->
-<!-- #################################################################### -->
 		<section class="grid">
+			<h1 class="title">TIC-TAC-TOE</h1>
 			<div class="board">
 				<div class="cell" id="1"></div>
 				<div class="cell" id="2"></div>
@@ -26,11 +20,15 @@
 				<div class="cell" id="8"></div>
 				<div class="cell" id="9"></div>
 			</div>
+			<div class="players">
+				<div>x</div>
+				<div>Giocatore 1</div>
+				<div>Giocatore 2</div>
+				<div>o</div>
+			</div>
 			<button id="newGameButton" onclick="newGame()">Reset</button>
 		</section>
 		<script src="gioco.js"></script>
 	</body>
 </html>
 
-<!-- Per me questo e' il file html finito come l'abbiamo discusso aggiunto una section
- per dividere meglio i vari blocchi -->

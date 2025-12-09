@@ -20,40 +20,52 @@ body {
 }
 
 .grid{
-  width: 100%;
+  max-width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 /* Come ho creato la griglia ho seguito la strat dei reapet di cui abbiamo parlato */
-.grid > .board {
-    display: inline-grid;
-    text-align: center;
-    grid-template-columns: repeat(3, 100px);
-    grid-gap: 8px;
-    background: rgb(49, 56, 85);
-    padding: 30px 20px;
-    border-radius: 12px;  
-    margin: 200px auto;
-    box-shadow:
-      0 0 5px #ff0000,
-      0 0 10px #2f00ff,
-      0 0 15px #3300ff,
-      inset 0 0 5px #ff0000;
+
+.grid .title{
+  background: linear-gradient(to right, #121FCF 0%, #CF1512 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0 20px rgba(255, 0, 0, 0.393),
+    0 0 30px rgba(51, 0, 255, 0.392);
+    margin-top: 20px;
+}
+
+.grid .board {
+  display: inline-grid;
+  text-align: center;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 8px;
+  background: rgb(49, 56, 85);
+  padding: 30px 20px;
+  border-radius: 12px;  
+  margin: 50px auto;
+  box-shadow:
+    0 0 5px #ff0000,
+    0 0 10px #2f00ff,
+    0 0 15px #3300ff,
+    inset 0 0 5px #ff0000;
 }
 
 /* Per modificare le celle */
 .grid .cell {
-    width: 100px;
-    height: 100px;
-    background-color: lightgray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border-radius: 12px;
-    font-weight: bolder;
-    font-size: 60px;
+  width: 100px;
+  height: 100px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: bolder;
+  font-size: 60px;
 }
 
 .grid .cell:hover {
@@ -63,7 +75,6 @@ body {
 .grid .cell.x{
   color: #ff0000;
   text-shadow:
-    /* White glow */
     0 0 7px #fe5151,
     0 0 10px #fe5151,
     0 0 21px #fe5151;
@@ -72,13 +83,43 @@ body {
 .grid .cell.o{
   color: #4800ff;
   text-shadow:
-    /* White glow */
     0 0 7px #7451fe,
     0 0 10px #7451fe,
     0 0 21px #7451fe;
 }
 
-#newGameButton {
-  border-radius: 12px;
-  padding: 5px 30px;
+.grid #newGameButton {
+  padding: 12px 28px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  background: #000;
+  border: 2px solid #ff0000;
+  border-radius: 12px; /* Bordi stondati */
+  cursor: pointer;
+
+  box-shadow:
+    0 0 5px #ff0000,
+    0 0 10px #2f00ff,
+    0 0 15px #3300ff,
+    inset 0 0 5px #ff0000;
+
+  transition: 0.25s ease;
+  
+}
+
+.grid #newGameButton:hover {
+  box-shadow:
+    0 0 8px #ff0000,
+    0 0 16px #2f00ff,
+    0 0 25px #3300ff,
+    inset 0 0 8px #ff0000,
+    0 0 40px rgba(50, 0, 255, 0.6);
+  transform: translateY(-2px);
+  
+}
+
+.grid .players{
+  display: flex;
+  padding: 20px;
 }
