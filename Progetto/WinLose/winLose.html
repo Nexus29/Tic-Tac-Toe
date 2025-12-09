@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="it">
 	<head>
-		<title>win lose</title>
+		<title>Risultato Tic-Tac-Toe</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="winLose.css" type="text/css" media="all">
 	</head>
 	<body>
-		<strong>GIOCO</strong><br>	
+		<div class="contenitore1">
+			<div id="esito">
+			<h2>
+				chi ha avuto la meglio? 
+			</h2>
+			</div>
+		</div>
+		<div class="contenitore2">
+			<p id="perso">
+				Hai perso!
+				<div id="perdente"></div>
+			</p>
+			<p id="vinto">Hai vinto!
+				<div id="vincitore"></div>
+			</p>
+
+		</div>
+		<div class="contenitore3">
+		<button onclick="location.href='test.html'">Nuova partita</button>
+		<div>
+		<input type="text" id="Giocatore" placeholder="inserisci il tuo nome...">
+		<button onclick="mostratesto()"></button>
+		</div>
+		<script src="winLose.js"></script>
 	</body>
 </html>
