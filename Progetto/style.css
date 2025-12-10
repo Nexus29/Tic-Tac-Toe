@@ -12,7 +12,6 @@ input,button,textarea,select{font:inherit}
 }
 body,html{height:100%;scroll-behavior:smooth}
 
-/* In questo purtroppo non sono bravo ho creato la tabella e lasciato un setup per fare cose */
 body {
   color: #000000;
   background: rgb(33, 36, 50);
@@ -26,7 +25,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-/* Come ho creato la griglia ho seguito la strat dei reapet di cui abbiamo parlato */
 
 .grid .title{
   background: linear-gradient(to right, #121FCF 0%, #CF1512 100%);
@@ -54,7 +52,6 @@ body {
     inset 0 0 5px #ff0000;
 }
 
-/* Per modificare le celle */
 .grid .cell {
   width: 100px;
   height: 100px;
