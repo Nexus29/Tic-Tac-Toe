@@ -1,4 +1,52 @@
-body{
+/* Reset */
+*,::before,::after{box-sizing:border-box}
+*{margin:0;padding:0}
+html:focus-within{scroll-behavior:smooth}
+a:not([class]){text-decoration-skip-ink:auto}
+img,picture,svg,video,canvas{max-width:100%;height:auto;vertical-align:middle;font-style:italic}
+input,button,textarea,select{font:inherit}
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within{scroll-behavior:auto}
+	*,::before,::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-
+	duration:.01ms!important;scroll-behavior:auto!important;transition:none}
+}
+body,html{height:100%;scroll-behavior:smooth}
+
+body {
+  color: white;
+  background: rgb(33, 36, 50);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.grid{
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid .title{
+  background: linear-gradient(to right, #121FCF 0%, #CF1512 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0 20px rgba(255, 0, 0, 0.393),
+    0 0 30px rgba(51, 0, 255, 0.392);
+    margin-top: 20px;
+    font-size: 50px;
+}
+.grid .container{
+    background: rgb(49, 56, 85);
+    box-shadow:
+    0 0 5px #ff0000,
+    0 0 10px #2f00ff,
+    0 0 15px #3300ff,
+    inset 0 0 5px #ff0000;
+}
+
+
+
+/*body{
     background: rgb(83, 49, 163);
 }
 #esito{
@@ -39,4 +87,4 @@ p{
     font-size: 35px;
     font-weight: bold;
     font-family: OCR A Std, monospace;
-}
+}*/
