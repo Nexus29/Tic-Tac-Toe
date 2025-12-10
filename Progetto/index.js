@@ -2,14 +2,6 @@ const player1Input = document.getElementById('player1');
 const player2Input = document.getElementById('player2');
 const startButton = document.getElementById('start-button'); 
 
-function updateStatusDisplay(message)
-{
-	if (statusDisplay)
-		statusDisplay.textContent = message;
-	else
-		console.log(`Stato: ${message}`);
-}
-
 document.addEventListener("DOMContentLoaded", () => {
 	
 	startButton.addEventListener('click', () => {

@@ -1,5 +1,8 @@
 const player1 = localStorage.getItem('player1Name');
 const player2 = localStorage.getItem('player2Name');
+const player1Div = document.getElementById('player1NameDisplay');
+const player2Div = document.getElementById('player2NameDisplay');
+const cells = Array.from(document.querySelectorAll('.cell')); 
 let currentPlayer = 'X';
 let gameActive = true;
 const winningCombos = [
@@ -7,8 +10,6 @@ const winningCombos = [
 	[1, 4, 7], [2, 5, 8], [3, 6, 9], // Colonne
 	[1, 5, 9], [3, 5, 7]             // Diagonali
 ];
-const cells = Array.from(document.querySelectorAll('.cell')); 
-const statusDisplay = document.querySelector('#gameStatus');
 
 // Utility
 function newGame()
@@ -19,16 +20,7 @@ function newGame()
 		cell.classList.remove('x', 'o');
 	});
 	currentPlayer = 'X';
-	updateStatusDisplay(`Back to the future!`);
 	history.back();
-}
-
-function updateStatusDisplay(message)
-{
-	if (statusDisplay)
-		statusDisplay.textContent = message;
-	else
-		console.log(`Stato: ${message}`);
 }
 
 // Possibili out della partita
@@ -37,7 +29,6 @@ function checkWin()
 	return winningCombos.some(combo => {
 		return combo.every(pos => {
 			const cellElement = document.getElementById(pos);
-			// Verifica che la cella esista e che il contenuto della cella corrisponda al giocatore attuale
 			return cellElement && cellElement.textContent === currentPlayer;
 		});
 	});
@@ -53,20 +44,21 @@ function handleCellClick()
 	if (checkWin())
 	{
 		gameActive = false;
-		updateStatusDisplay(`🎉 Vittoria di ${currentPlayer}!`);
+		window.location.replace("http://127.0.0.1:5500/Progetto/WinLose/winLose.html");
+		localStorage.setItem('winnerName', currentPlayer);
 		return;
 	}
 	if (checkDraw())
 	{
 		gameActive = false;
-		updateStatusDisplay(`🤝 Partita Terminata in Pareggio!`);
+		alert(`🤝 Partita Terminata in Pareggio! Complimenti i giocatori ${player1} e ${player2}`);
+		window.location.replace("http://127.0.0.1:5500/Progetto/index.html");
 		return;
 	}
 	currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
-	updateStatusDisplay(`Turno del giocatore ${currentPlayer}`);
 }
 
 // MAIN
 cells.forEach(cell => {cell.addEventListener('click', handleCellClick);});
-updateStatusDisplay(`Player1: ${player1} Player2: ${player2}`);
-updateStatusDisplay(`Inizia la X!`);
+player1Div.textContent = player1;
+player2Div.textContent = player2;
