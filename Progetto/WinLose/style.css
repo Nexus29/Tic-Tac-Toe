@@ -44,7 +44,54 @@ body {
     inset 0 0 5px #ff0000;
 }
 
+.footer .copyright{
+    max-width: 1450px;
+    margin: auto;
+    color:black;
+    text-shadow:
+    /* White glow */
+    0 0 7px #7451fe,
+    0 0 10px #7451fe,
+    0 0 21px #7451fe;
+}
 
+.footer .bordoBot{
+    border-bottom: 7px solid white ;
+}
+
+.footer .fondo{
+
+    padding:25px 9px;
+}
+
+.footer .fondo a{
+    font-size:15px;
+    color:black;
+}
+
+.footer .fondo .links{
+    
+    text-shadow:
+    /* White glow */
+    0 0 7px #7451fe,
+    0 0 10px #7451fe,
+    0 0 21px #7451fe;
+}
+
+.footer {
+  position:fixed;
+  bottom:0;
+text-align: center;
+
+width: 100%;
+
+}
+
+@media screen and (max-height:730px){
+
+.footer{position:static}
+
+}
 
 /*body{
     background: rgb(83, 49, 163);
