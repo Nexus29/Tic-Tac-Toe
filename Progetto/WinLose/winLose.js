@@ -8,13 +8,13 @@ function displayWinner()
 {
     if(winner === 'X')
     {
-        winnerDiv.textContent = player1;
-        loserDiv.textContent = player2;
+        winnerDiv.textContent = `THE WINNER IS ${player1}`;
+        loserDiv.textContent = `THE LOSER IS ${player2}`;
     }
     else
     {
-        winnerDiv.textContent = player2;
-        loserDiv.textContent = player1;
+        winnerDiv.textContent = `THE WINNER IS ${player2}`;
+        loserDiv.textContent = `THE LOSER IS ${player1}`;
     }
 
 }
