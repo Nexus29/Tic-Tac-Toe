@@ -36,6 +36,7 @@ body {
     0 0 20px rgba(255, 0, 0, 0.393),
     0 0 30px rgba(51, 0, 255, 0.392);
     margin-top: 20px;
+    font-size: 50px;
 }
 
 .grid .board {

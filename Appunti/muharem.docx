@@ -1,0 +1,29 @@
+1. Sviluppo della Schermata Risultati (Developer)
+
+Si occupa della schermata di riepilogo vittoria/pareggio e collegamento alla homepage e credits.
+
+Muharem è il responsabile principale dei Risultati Finali:
+
+    Parte A (Riepilogo e Messaggi):
+
+        Ricevere il risultato finale dal modulo di gioco (es. "Vittoria di X" o "Pareggio").
+
+        Creare l'HTML e il CSS per visualizzare il riepilogo della partita.
+
+        Implementare la logica JavaScript per mostrare chiaramente:
+
+            Il risultato (Vittoria o Pareggio).
+
+            Il nome del giocatore vincitore (se applicabile).
+
+        (In collaborazione con il team) Gestire l'eventuale storico risultati (array) mostrato in questa pagina.
+
+2. Gestione dei Collegamenti e Flusso
+
+    Connessione di Fine Gioco: Assicurare che, una volta che la logica di gioco (sviluppata da Giovanni).
+
+    Collegamenti Navigazionali: Implementare i link e le transizioni JavaScript per:
+
+        Ritornare alla Homepage.
+
+        Accedere alla pagina Credits (coordinandosi con Bianca).
