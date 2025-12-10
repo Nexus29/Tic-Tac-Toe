@@ -1,3 +1,5 @@
+const player1 = localStorage.getItem('player1Name');
+const player2 = localStorage.getItem('player2Name');
 let currentPlayer = 'X';
 let gameActive = true;
 const winningCombos = [
@@ -17,7 +19,8 @@ function newGame()
 		cell.classList.remove('x', 'o');
 	});
 	currentPlayer = 'X';
-	updateStatusDisplay(`Inizia la X!`);
+	updateStatusDisplay(`Back to the future!`);
+	history.back();
 }
 
 function updateStatusDisplay(message)
@@ -65,4 +68,5 @@ function handleCellClick()
 
 // MAIN
 cells.forEach(cell => {cell.addEventListener('click', handleCellClick);});
+updateStatusDisplay(`Player1: ${player1} Player2: ${player2}`);
 updateStatusDisplay(`Inizia la X!`);
