@@ -9,7 +9,7 @@
 	<body>
 		<section class="grid">
 			<h1 class="title">TIC-TAC-TOE</h1>
-			<div class="board">
+			<div class="board border">
 				<div class="cell" id="1"></div>
 				<div class="cell" id="2"></div>
 				<div class="cell" id="3"></div>
@@ -20,13 +20,13 @@
 				<div class="cell" id="8"></div>
 				<div class="cell" id="9"></div>
 			</div>
-			<div class="players">
+			<div class="players border">
 				<div class="symbol x">x</div>
-				<div class="player">Giocatore 1</div>
-				<div class="player">Giocatore 2</div>
+				<div class="playerName">Giocatore 1</div>
+				<div class="playerName">Giocatore 2</div>
 				<div class="symbol o">o</div>
 			</div>
-			<button id="newGameButton" onclick="newGame()">Reset</button>
+			<button id="newGameButton" class="border"  onclick="newGame()">Reset</button>
 		</section>
 		<script src="gioco.js"></script>
 	</body>

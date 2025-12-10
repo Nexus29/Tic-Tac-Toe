@@ -12,11 +12,19 @@ input,button,textarea,select{font:inherit}
 }
 body,html{height:100%;scroll-behavior:smooth}
 
-/* In questo purtroppo non sono bravo ho creato la tabella e lasciato un setup per fare cose */
+
 body {
-  color: #000000;
+  color: white;
   background: rgb(33, 36, 50);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.border{
+  box-shadow:
+    0 0 5px #ff0000,
+    0 0 10px #2f00ff,
+    0 0 15px #3300ff,
+    inset 0 0 5px #ff0000;
 }
 
 .grid{
@@ -26,8 +34,8 @@ body {
   justify-content: center;
   align-items: center;
 }
-/* Come ho creato la griglia ho seguito la strat dei reapet di cui abbiamo parlato */
 
+/* tabella del gioco */
 .grid .title{
   background: linear-gradient(to right, #121FCF 0%, #CF1512 100%);
   -webkit-background-clip: text;
@@ -48,11 +56,7 @@ body {
   padding: 30px 20px;
   border-radius: 12px;  
   margin: 25px auto;
-  box-shadow:
-    0 0 5px #ff0000,
-    0 0 10px #2f00ff,
-    0 0 15px #3300ff,
-    inset 0 0 5px #ff0000;
+  
 }
 
 /* Per modificare le celle */
@@ -67,7 +71,7 @@ body {
   border-radius: 12px;
   font-weight: bolder;
   font-size: 60px;
-  transition: 0.25s ease;
+  transition: 0.35s ease;
 }
 
 .grid .cell:hover {
@@ -92,14 +96,30 @@ body {
   border: 2px solid  #4800ff;
 }
 
+.grid .cell.o:hover{
+  background: rgba(141, 107, 252, 0.685);
+  text-shadow:
+    0 0 7px #ffffff,
+    0 0 10px #ffffff,
+    0 0 15px #ffffff,
+    0 0 21px #ffffff; 
+  transition: 0.45s ease;
+}
+
+.grid .cell.x:hover{
+  background-color: rgb(252, 99, 99);
+  text-shadow:
+    0 0 7px #ffffff,
+    0 0 10px #ffffff,
+    0 0 15px #ffffff,
+    0 0 21px #ffffff; 
+  transition: 0.45s ease;
+}
+
+/*tabellina giocatori */
 .grid .players{
   display: flex;
   border-radius: 12px;
-   box-shadow:
-    0 0 5px #4800ff,
-    0 0 10px #2f00ff,
-    0 0 15px #3300ff,
-    inset 0 0 5px #ff0000;
 }
 
 .players .symbol{
@@ -110,8 +130,7 @@ body {
 
 .players .x{
   background: rgba(255, 0, 0, 0.718);
-  border-radius: 0; /* FIX */
-  color:white;
+  border-radius: 0; 
   text-shadow:
     0 0 7px #ffffff,
     0 0 10px #ffffff;
@@ -120,20 +139,20 @@ body {
 .players .o{
   color:white;
   background: rgba(1, 1, 255, 0.704);
-   border-radius: 0; /* FIX */
-
+   border-radius: 0;
   text-shadow:
     0 0 7px #ffffff,
     0 0 10px #ffffff;
 }
 
-.players .player{
+.players .playerName{
   padding: 20px;
   font-size: 20px;
   display:flex;
   align-items: center;
   color: white;
 }
+
 .players .x {
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
@@ -144,6 +163,7 @@ body {
   border-bottom-right-radius: 12px;
 }
 
+/*button reset*/
 .grid #newGameButton {
   padding: 12px 28px;
   font-size: 18px;
@@ -151,16 +171,10 @@ body {
   color: #fff;
   background: #000;
   border: 2px solid #ff0000;
-  border-radius: 12px; /* Bordi stondati */
+  border-radius: 12px;
   cursor: pointer;
-  box-shadow:
-    0 0 5px #ff0000,
-    0 0 10px #2f00ff,
-    0 0 15px #3300ff,
-    inset 0 0 5px #ff0000;
   margin-top: 30px;
   transition: 0.25s ease;
-  
 }
 
 .grid #newGameButton:hover {
@@ -171,5 +185,9 @@ body {
     inset 0 0 8px #ff0000,
     0 0 40px rgba(50, 0, 255, 0.6);
   transform: translateY(-2px);
+}
+
+@media screen and (max-width : 760px){
   
 }
+
