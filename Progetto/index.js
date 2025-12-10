@@ -1,3 +1,7 @@
+var player1 = ""; 
+player1.
+
+
 function updateStatusDisplay(message)
 {
 	if (statusDisplay)
