@@ -1,9 +1,28 @@
 const player1Input = document.getElementById('player1');
 const player2Input = document.getElementById('player2');
-const startButton = document.getElementById('start-button'); 
+const startButton = document.getElementById('start-button');
+const gameHistory = document.getElementById('game-count');
+const COUNTER_KEY = 'totalGames';
+
+// Per prendere il numero di partite
+function getGamesCount()
+{
+	const counter = localStorage.getItem(COUNTER_KEY);
+	return +(counter || 0);
+}
+
+function displayGamesCount()
+{
+    const count = getGamesCount();
+    if (gameHistory)
+        gameHistory.textContent = count;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-	
+
+	displayGamesCount();
+	console.log(`Number of the games: ${getGamesCount()}`);
+
 	startButton.addEventListener('click', () => {
 
 		const p1Name = player1Input.value.trim();
