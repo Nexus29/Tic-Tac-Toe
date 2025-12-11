@@ -21,7 +21,6 @@ function displayGamesCount()
 document.addEventListener("DOMContentLoaded", () => {
 
 	displayGamesCount();
-	console.log(`Number of the games: ${getGamesCount()}`);
 
 	startButton.addEventListener('click', () => {
 
