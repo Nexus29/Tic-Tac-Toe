@@ -1,0 +1,25 @@
+S1. Compiti Tecnici Specifici (Developer)
+
+Si occupa della homepage in generale collega tutte le varie pagine, per il flusso del programma.
+
+I suoi compiti si concentrano sulla struttura della Schermata 1 e sulla gestione del flusso tra le schermate:
+
+    Homepage (Schermata 1 - Benvenuto):
+
+        Implementare la struttura HTML di base della pagina iniziale, lavorando in coordinazione con Gaia per l'inserimento degli elementi di input e del pulsante "Inizia".
+
+        Assicurare che l'HTML sia semantico e accessibile (come richiesto dalle linee guida).
+
+    Gestione del Flusso del Programma (Pagine/Schermate):
+
+        È il responsabile principale per il collegamento logico e funzionale tra tutte le schermate del progetto (Benvenuto → Gioco → Risultati → Credits).
+
+        Implementare le funzioni JavaScript necessarie per la navigazione tra le sezioni (probabilmente una funzione centrale come switchScreen(targetId) menzionata nella documentazione).
+
+        Garantire che, una volta inseriti i nomi (Schermata 1), il click sul pulsante "Inizia" attivi correttamente la Schermata 2 (Gioco).
+
+2. Responsabilità Architettoniche
+
+    Architettura del Sito: Rolando deve assicurare che la transizione tra le diverse viste sia fluida, mantenendo lo stato del gioco (es. nomi dei giocatori) anche quando la vista cambia.
+
+    Coordinamento di Flusso: Deve coordinarsi con Gaia (per l'uscita dalla Schermata 1) e Bianca (per i collegamenti alla schermata Credits e ritorno alla Homepage) per definire gli ID o le classi da usare per nascondere e mostrare le sezioni.
