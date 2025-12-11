@@ -17,13 +17,13 @@ function displayWinner()
 {
     if(winner === 'X')
     {
-        winnerDiv.textContent = `THE WINNER IS ${player1}`;
-        loserDiv.textContent = `THE LOSER IS ${player2}`;
+        winnerDiv.textContent = `The winner is ${player1}!`;
+        loserDiv.textContent = `The loser is ${player2}!`;
     }
     else
     {
-        winnerDiv.textContent = `THE WINNER IS ${player2}`;
-        loserDiv.textContent = `THE LOSER IS ${player1}`;
+        winnerDiv.textContent = `The winner is ${player2}!`;
+        loserDiv.textContent = `The loser is ${player1}!`;
     }
     updateHistory();
 }
