@@ -44,7 +44,7 @@ function handleCellClick()
 	if (checkWin())
 	{
 		gameActive = false;
-		window.location.replace("http://127.0.0.1:5500/Progetto/WinLose/winLose.html");
+		window.location.replace("/WinLose/winLose.html");
 		localStorage.setItem('winnerName', currentPlayer);
 		return;
 	}
@@ -52,7 +52,7 @@ function handleCellClick()
 	{
 		gameActive = false;
 		alert(`🤝 Partita Terminata in Pareggio! Complimenti i giocatori ${player1} e ${player2}`);
-		window.location.replace("http://127.0.0.1:5500/Progetto/index.html");
+		window.location.replace("/index.html");
 		return;
 	}
 	currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
