@@ -138,18 +138,17 @@ body {
   text-align: center;
   font-size: 20px;
   margin-top: 10px;
-  
 }
 
 /*footer*/
 .footer .copyright{
   max-width: 1450px;
   margin: auto;
-  color:black;
+  color:rgb(219, 208, 216);
   text-shadow:
-  0 0 7px #7451fe,
-  0 0 10px #7451fe,
-  0 0 21px #7451fe;
+    0 0 7px #7451fe,
+    0 0 10px #7451fe,
+    0 0 21px #7451fe;
 }
 
 .footer .fondo{
@@ -158,10 +157,10 @@ body {
 
 .footer .fondo a{
   font-size:15px;
-  color:black;
+  color:rgb(245, 241, 241);
 }
 
-.footer .fondo .links{
+.footer .fondo .links{  
   text-shadow:
     0 0 7px #7451fe,
     0 0 10px #7451fe,
@@ -172,7 +171,7 @@ body {
   position:fixed;
   bottom:0;
   text-align: center;
-  max-width: 100%;
+  width: 100%;
 }
 
 @media screen and (max-height:730px){
