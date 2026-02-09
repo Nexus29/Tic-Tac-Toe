@@ -1,88 +1,51 @@
-# Tic-Tac-Toe (Tris) Web Project
+# 🕹️ Tic-Tac-Toe (Tris) Web App: Full-Stack Edition
 
-A professional, collaborative web-based Tic-Tac-Toe game. This project focuses on clean architecture, seamless transitions between screens, and a cohesive user experience.
+A professional, collaborative web-based Tic-Tac-Toe game. Originally a front-end prototype, this project has evolved into a dynamic Full-Stack application using **PHP** and **SQL** to manage user authentication, persistent game states, and match history.
 
-## 👥 Team Roles & Detailed Responsibilities
+## 👥 Meet the Team
 
-### **1. Giovanni — Project Manager & Lead Developer**
+With the transition to a server-side architecture, the team has been streamlined to focus on core development, database management, and system flow.
 
-**Management Responsibilities:**
+### **1. Giovanni — Project Manager & Lead Backend Developer**
 
-* **Initial Organization:** Supervised the creation of the shared workspace, collaborative documentation, and task assignment.
-* **Coordination & Control:** Maintains the "Decision and Progress History" and ensures all deadlines are met.
-* **Workflow Oversight:** Ensures all team members stay updated on collective progress, especially during remote work phases.
+**Management & Logic Lead**
 
-**Technical Responsibilities:**
+* **Technical Supervision:** Ensures the codebase follows clean code practices and maintains a cohesive architecture between PHP and SQL.
+* **Game Engine (PHP):** Developed the server-side logic for move validation, win conditions, and draw detection.
+* **Integration:** Responsible for merging the authentication system with the game loop and final end-to-end debugging.
 
-* **Technical Supervision:** Guarantees that all components (HTML, CSS, JS) follow established naming conventions, accessibility standards, and clean code practices.
-* **Core Logic:** Developed global JavaScript functions (e.g., `switchScreen()`) and managed global states.
-* **Integration & Debugging:** Primary lead for merging files, resolving conflicts, and final end-to-end debugging.
+### **2. Gaia — Lead Designer & Database Architect**
 
-### **2. Gaia — Front-end Specialist & Lead Designer**
+**UI/UX & Data Infrastructure**
 
-**Design Responsibilities:**
+* **Database Setup:** Designed the MySQL schema for users, match results, and active game sessions.
+* **Authentication (Login):** Implemented the full login system, including secure user entry and session management.
+* **Visual Identity:** Created the aesthetic identity (palette, fonts, layout) and ensures the UI remains responsive across all devices.
 
-* **UX/UI & Wireframing:** Responsible for the User Experience and Interface study. Produced sketches and mockups for the entire application.
-* **Global Style (CSS):** Defined the aesthetic identity (color palette, fonts, layout) and created modular, responsive CSS for mobile and tablet compatibility.
+### **3. Rolando — Flow & Navigation Specialist**
 
-**Technical Responsibilities:**
+**Site Architecture & Data Presentation**
 
-* **Welcome Screen (UI):** Designed and implemented the styling for the player name input interface.
-* **Interactive Elements:** Created the functions/events for the "Start" button interaction.
-* **Frontend Support:** Provided guidance to other members to ensure design consistency across all pages.
-
-### **3. Rolando — Developer (Flow & Homepage)**
-
-**Technical Responsibilities:**
-
-* **Homepage Structure:** Implemented the semantic HTML for the Welcome Screen in coordination with Gaia.
-* **Program Flow Management:** Primary lead for the logical connection between all screens (Welcome → Game → Results → Credits).
-* **Navigation Logic:** Implemented JavaScript functions to manage section visibility and ensured player names are correctly passed to the game engine.
-
-**Architectural Responsibilities:**
-
-* **Site Architecture:** Ensures fluid transitions while maintaining game state.
-* **Flow Coordination:** Collaborated with Gaia and Bianca to define IDs and classes used for toggling screen views.
-
-### **4. Muharem — Developer (Results Screen)**
-
-**Technical Responsibilities:**
-
-* **Results Logic:** Developed the logic to receive game outcomes (Win/Draw) and display them dynamically.
-* **UI Implementation:** Created the HTML/CSS for the summary screen, showing the winner's name and match statistics.
-* **History Management:** (In collaboration with the team) Managed the results array/history shown on this page.
-
-**Navigation Responsibilities:**
-
-* **End-Game Connection:** Ensured a seamless transition from the game logic to the results view.
-* **Navigational Links:** Implemented transitions to return to the Homepage or proceed to the Credits page.
-
-### **5. Bianca — Developer (Credits & Quality Assurance)**
-
-**Technical Responsibilities:**
-
-* **Credits Page Development:** Designed and implemented the HTML/CSS for the "Credits" screen, ensuring it includes all team information and matches the global design.
-* **Global Footer Creation:** Responsible for the design and implementation of a consistent **Footer** across every page of the website, ensuring uniform branding and navigation links.
-* **Page Interconnectivity:** Collaborated with Rolando to implement JavaScript transitions for entering/exiting the Credits page.
-
-**Quality Control (Testing):**
-
-* **Functional Testing:** Verified the accuracy of game logic (win conditions, draws, turn management).
-* **Flow Testing:** Ensured the transition between all four screens is bug-free and smooth.
-* **Refinement & Debugging:** Responsible for identifying issues and collaborating with the Lead Developer to resolve conflicts before final delivery.
+* **Navigation Logic:** Managed the logical connection between all screens (Login → Game → Results) using PHP state management.
+* **Stats & Results:** Developed the logic to retrieve match history and player statistics from the database to display them dynamically.
+* **Site Architecture:** Ensures fluid transitions while maintaining the game state if a user refreshes the page.
 
 ---
 
 ## 📂 Application Structure
 
-1. **Screen 1 (Welcome):** Player login and entry point.
-2. **Screen 2 (Game):** The interactive Tic-Tac-Toe board.
-3. **Screen 3 (Results):** Victory/Draw messages and match reset options.
-4. **Screen 4 (Credits):** Team recognition, animations, and project info.
-5. **Global Elements:** Consistent **Footer** on all pages (developed by Bianca).
+The application is organized into a modular flow powered by a PHP backend:
+
+1. **Welcome & Login (Gaia):** User entry point featuring the database-connected login system.
+2. **Game Board (Giovanni):** The interactive grid where moves are validated and processed by the server.
+3. **Results & History (Rolando):** A dynamic summary of match outcomes and global player statistics.
+4. **Global Elements:** Consistent navigation and branding across all views.
+
+---
 
 ## 🛠️ Tech Stack
 
-* **HTML5:** Semantic structure and accessibility.
-* **CSS3:** Modular styling and responsive design.
-* **JavaScript (ES6):** State management, DOM manipulation, and game logic.
+* **HTML5 & CSS3:** For a responsive, accessible, and modular interface.
+* **PHP 8.x:** Handles server-side game logic and secure session management.
+* **MySQL/SQL:** Provides data persistence for users and match history.
+* **JavaScript (ES6):** Enhances the user experience with seamless front-end transitions.
