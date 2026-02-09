@@ -1,39 +1,35 @@
 Tic-Tac-Toe Web Game
 
-Nome Componente,Ruolo Assegnato,Compiti Tecnici Principali
-[Giovanni],[Project Manager / Lead Developer],"Si occupa della gestione del team, sia lato tecnico che lato dev. Occupato anche di parte dello sviluppo del gioco"
-[Gaia],[Front-end Specialist / Designer], "Si occupa di tutto quello che riguarda il frontend del gioco e aiuta allo sviluppo del frontend delle altre pagine"
-[Rolando],[Developer], "Si occupa della homepage in generale collega tutte le varie pagine, per il flusso del programma"
-[Bianca],[Developer],"Si occupa della pagina di credits, aiuta al collegamento delle varie pagine e testing generale"
-[Muharem],[Developer], "Si occupa della schermata di riepilogo vittoria/pareggio e collegamengto alla homepage e credits"
-
 Obiettivi del Progetto:
 
-    Realizzare un gioco del Tic-Tac-Toe (Tris) completamente funzionante tramite HTML, CSS e JavaScript.
+    Realizzare un gioco del Tic-Tac-Toe (Tris) completamente funzionante tramite php.
 
-    Strutturare l'applicazione a schermate distinte (Benvenuto, Gioco, Risultati, Credits).
+    Convertire in richieste http (Benvenuto, Gioco, Risultati, Credits).
 
-    Garantire una buona UX/UI e un design responsive minimo.
+    Re-Design arcade cabinato.
 
-    Implementare la logica di gioco completa, inclusa la gestione del turno e la verifica della vittoria/pareggio.
-
-    Mantenere il codice pulito, commentato e accessibile (rispetto della semantica HTML).
-
-    Lavorare in modo collaborativo e documentare il processo.
-
-Storico delle Decisioni e dei Progressi
-
-    Definita l'architettura a schermate e la suddivisione dei compiti tecnici.
+Storico delle Decisioni e dei Progressi:
 
     Scelta la tecnologia principale: Vanilla JavaScript (senza framework esterni) per la logica.
 
     Definito il passaggio tra schermate e il flusso del sito.
 
-    Collegamento delle varie pagine.
+    index.php ha la registrazione e login invece dell'insert del dei campi.
 
-Fonti consultate per la realizzazione: 
-    https://youtu.be/_FQgeYuxnKk?si=lhT_qocQtSaukbMv
-    https://youtu.be/LD9UEC7AI7g?si=9ofHqru-XWn4jMNA
-    https://www.geeksforgeeks.org/javascript/simple-tic-tac-toe-game-using-javascript/
-    https://onecompiler.com/html/42b65uz7m
-    https://medium.com/@canankorkut1/how-to-create-a-tic-tac-toe-with-html-css-and-javascript-10a25fddd356
+    Bot.
+
+    eliminare il footer ovunque
+
+    Ps. try second player
+
+Struttura pagine:
+
+    index.php = login e colloegamento alla pagina di registrazione
+
+    register.php = register e collegamento al login, registrazione tramite form, controllo dei post e query insert
+
+    gioco.php = logica del gioco, notifica di vittoria tramite popup, nuova partita e logout, storico partite 
+    (username utente usernameUtente, partite giocate -> count(partite_id), partite -> vinte partite_vittorie, partite perse -> partite giocate - partite vinte)
+
+
+    

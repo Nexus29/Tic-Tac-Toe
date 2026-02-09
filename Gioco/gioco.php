@@ -22,24 +22,16 @@
 				<div class="cell" id="9"></div>
 			</div>
 			<div class="players border">
-				<div class="symbol x">x</div>
-				<div class="playerName" id="player1NameDisplay"></div>
+				<?php
+					include_once('../connessione.php');
+					echo "<div class=\"symbol x\">x</div>
+						<div class=\"playerName\" id=\"player1NameDisplay\"> " . $_SESSION['online'] . "</div>";
+				?>
 				<div class="playerName" id="player2NameDisplay"></div>
 				<div class="symbol o">o</div>
 			</div>
 			<button id="newGameButton" class="border"  onclick="newGame()">Reset</button>
 		</section>
-		<footer class="footer">
-			<div class="copyright">Copyright Progetto TicTacToe-2025- Tutti i diritti riservati.</div>
-			<div class="fondo">
-				<div class="links">
-					<a href="#">Termini e Condizioni</a>
-					<a href="#">Privacy</a>
-					<a href="#">Cookie</a>
-					<a href="#">Note Legali</a>
-				</div>	
-			</div>
-		</footer>
 		<script src="gioco.js"></script>
 	</body>
 </html>
