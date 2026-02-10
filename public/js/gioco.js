@@ -14,6 +14,17 @@ const winningCombos = [
 	[1, 5, 9], [3, 5, 7]
 ];
 
+function saveResult(result)
+{
+	const formData = new FormData;
+	formData.append('result', result);
+
+	fetch('src/game_logic.php', {
+		method: 'POST',
+		body: formData
+	});
+}
+
 function botMove()
 {
 	if (!gameActive) return;
@@ -30,37 +41,6 @@ function botMove()
 	}
 }
 
-function handleCellClick()
-{
-	if (!gameActive || this.textContent !== '') return;
-
-	this.textContent = currentPlayer;
-	this.classList.add(currentPlayer.toLowerCase());
-
-	if (checkWin())
-	{
-		gameActive = false;
-		const winner = (currentPlayer === 'X') ? player1 : player2;
-		alert(`🎉 Vittoria per ${winner}!`);
-		window.location.href = 'index.php';
-		return;
-	}
-
-	if (checkDraw())
-	{
-		gameActive = false;
-		alert(`🤝 Pareggio tra ${player1} e ${player2}!`);
-		window.location.href = 'index.php';
-		return;
-	}
-
-	currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
-
-	// Bot turn
-	if (currentPlayer === 'O' && gameActive)
-		botMove();
-}
-
 function checkWin()
 {
 	return winningCombos.some(combo => {
@@ -74,6 +54,40 @@ function checkWin()
 function checkDraw()
 { 
 	return cells.every(cell => cell.textContent !== ''); 
+}
+
+function handleCellClick()
+{
+	if (!gameActive || this.textContent !== '') return;
+
+	this.textContent = currentPlayer;
+	this.classList.add(currentPlayer.toLowerCase());
+
+	if (checkWin())
+	{
+		gameActive = false;
+		const winner = (currentPlayer === 'X') ? player1 : player2;
+		const result= (currentPlayer === 'X') ? 'win' : 'loss';
+		saveResult(result);
+		alert(`🎉 Vittoria per ${winner}!`);
+		window.location.href = 'index.php';
+		return;
+	}
+
+	if (checkDraw())
+	{
+		gameActive = false;
+		saveResult('loss');
+		alert(`🤝 Pareggio tra ${player1} e ${player2}!`);
+		window.location.href = 'index.php';
+		return;
+	}
+
+	currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
+
+	// Bot turn
+	if (currentPlayer === 'O' && gameActive)
+		botMove();
 }
 
 function newGame()
