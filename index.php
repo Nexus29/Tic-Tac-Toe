@@ -11,31 +11,8 @@
 
 	$errorMsg = "";
 
-	// Login
-	if(isset($_POST['username']) && isset($_POST['password']))
-	{
-		$user = $_POST['username'];
-		$pass = $_POST['password'];
-
-		if (isset($connection))
-		{
-			$query = "SELECT * FROM giocatori WHERE giocatori_username='$user' AND giocatori_password='$pass'";
-			$result = $connection->query($query); 
-
-			if ($result && $result->num_rows > 0)
-			{
-				$row = $result->fetch_assoc();
-				$_SESSION['online'] = $row['giocatori_username'];
-				$_SESSION['user_id'] = $row['giocatori_idGiocatore'];
-				header("Location: gioco.php");
-				exit();
-			}
-			else
-				$errorMsg = "Username o password errati.";
-		}
-		else
-			$errorMsg = "Errore: Connessione al database non caricata. Controlla il percorso del file.";
-	}
+	if(isset($_GET['error']) && $_GET['error'] == 'invalid_credentials')
+		$errorMsg = "Username o password errati.";
 ?>
 
 <!DOCTYPE html>
@@ -51,25 +28,30 @@
 		<section class="welcome">
 			<h1 class="titolo">TIC TAC TOE</h1>
 			<div class="border neon">
-				<?php if(!isset($_SESSION['online'])): ?>
+				<?php if(!isset($_SESSION['username'])): ?>
 					<h1>Login</h1>
-					<?php if($errorMsg) echo "<p class='error'>$errorMsg</p>"; ?>
-					<form method='post' action=''>
-						<label>Username:</label>
-						<input type='text' name='username' class='neon' required>
-						<label>Password:</label>
-						<input type='password' name='password' class='neon' required>
+					<?php if($errorMsg) echo "<p class='error' style='color:red;'>$errorMsg</p>"; ?>
+					
+					<form action="src/login_process.php" method="POST">
+						<label for="user">Username:</label>
+						<input type="text" name="username" id="user" class="neon" required>
+						<label for="pass">Password:</label>
+						<input type="password" name="password" id="pass" class="neon" required>
 						<div style="margin-top:20px;">
-							<input type='submit' value='Entra'>
+							<button type="submit">Log In</button>
 							<a href="register.php" style="color:#0ff; margin-left:15px;">Registrati</a>
 						</div>
 					</form>
 				<?php else: ?>
 					<div class="logged-in">
-						<p>Bentvenuto, <strong><?php echo $_SESSION['online']; ?></strong>!</p>
-						<button onclick="window.location.href='gioco.php'">Inizia Partita</button>
-						<form method="post" style="display:inline;">
-							<input type='submit' name='logout' value='Logout' class='logout'>
+						<p>Benvenuto, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>!</p>
+						
+						<div style="margin-bottom:15px;">
+							<a href="gioco.php" style="display:inline-block; padding:10px 20px; background:#0ff; color:#000; text-decoration:none; font-weight:bold; border-radius:5px;">Inizia Partita</a>
+						</div>
+
+						<form method="post">
+							<input type='submit' name='logout' value='Logout' class='logout' style="background:none; border:none; color:red; cursor:pointer; text-decoration:underline;">
 						</form>
 					</div>
 				<?php endif; ?>

@@ -23,16 +23,15 @@
 			</div>
 			<div class="players border">
 				<?php
-					include_once('../connessione.php');
+					include_once('config/connection.php');
+					
 					echo "<div class=\"symbol x\">x</div>
-						<div class=\"playerName\" id=\"player1NameDisplay\"> " . $_SESSION['online'] . "</div>";
+						<div class=\"playerName\" id=\"player1NameDisplay\"> " . (isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Player') . "</div>";
 				?>
-				<div class="playerName" id="player2NameDisplay"></div>
+				<div class="playerName" id="player2NameDisplay">Bot</div>
 				<div class="symbol o">o</div>
 			</div>
-			<button id="newGameButton" class="border"  onclick="newGame()">Reset</button>
 		</section>
 		<script src="public/js/gioco.js"></script>
 	</body>
 </html>
-
