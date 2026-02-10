@@ -40,27 +40,29 @@ With the transition to a server-side architecture, the team has been streamlined
 /tic-tac-toe-project
 │
 ├── /config                  # Sensitive backend configurations
-│   └── connessione.php      # Database connection logic
+│   └── connection.php       # Database connection logic
 │
 ├── /public                  # Files accessible to the browser
-│   ├── /assets              # Images and visual media (index.png, gioco.png)
-│   ├── /css                 # All stylesheets (style.css, gioco.css)
-│   └── /js                  # Client-side logic (index.js, gioco.js)
+│   ├── /assets              # Images (index.png, gioco.png, register.png)
+│   ├── /css                 # All stylesheets (style.css, gioco.css, register.css)
+│   └── /js                  # Client-side logic (index.js, gioco.js, register.js)
 │
-├── /src                    # Core PHP logic (Giovanni & Rolando)
-│   ├── login_process.php    # Handles Gaia's login logic
-│   └── game_logic.php       # Giovanni's win/draw logic
+├── /src                     # Core PHP logic
+│   ├── login_process.php    # Handles login validation
+│   ├── register_process.php # Handles database insertion & password hashing
+│   └── game_logic.php       # Win/draw logic
 │
-├── /database                # Database scripts (Gaia)
-│   └── tictactoe.sql        # Database schema export
+├── /database                # Database scripts
+│   └── tictactoe.sql        # Database schema
 │
 ├── /docs                    # Project documentation
 │   └── documentazione.docx
 │
-├── index.php                # Main Entry Point (Gaia's login page)
-├── gioco.php                # Main Game Page (Giovanni/Rolando)
-├── README.md                # Project overview
-└── LICENSE                  # Legal permissions
+├── index.php                # Main Entry Point (Login Page)
+├── register.php             # Main Registration Page (The Form)
+├── gioco.php                # Main Game Page
+├── README.md                
+└── LICENSE
 
 ```
 

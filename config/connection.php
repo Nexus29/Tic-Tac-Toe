@@ -18,26 +18,30 @@ try
 	if ($connection->query($createDb))
 	{
 		$connection->select_db($dbname);
-		// Carico lo schema del database fato da Gaia
-		$sqlFile = __DIR__ . '/../database/tictactoe.sql';
-
-		if (file_exists($sqlFile))
+		$tableCheck = $connection->query("SHOW TABLES LIKE 'giocatori'");
+		if($tableCheck->num_rows == 0)
 		{
-			// Prendo il contenuto di questo file
-			$sqlContent = file_get_contents($sqlFile);
-			
-			// Eseguo ora tutte le query prese dal mio file
-			if ($connection->multi_query($sqlContent))
+			// Carico lo schema del database fato da Gaia
+			$sqlFile = __DIR__ . '/../database/tictactoe.sql';
+	
+			if (file_exists($sqlFile))
 			{
-				// Stessa cosa del while ma solo per la prima linea
-				$result = $connection->store_result();
-				if ($result) $result->free();
+				// Prendo il contenuto di questo file
+				$sqlContent = file_get_contents($sqlFile);
 				
-				// Processo i risultati mano a mano
-				while ($connection->next_result())
+				// Eseguo ora tutte le query prese dal mio file
+				if ($connection->multi_query($sqlContent))
 				{
+					// Stessa cosa del while ma solo per la prima linea
 					$result = $connection->store_result();
 					if ($result) $result->free();
+					
+					// Processo i risultati mano a mano
+					while ($connection->next_result())
+					{
+						$result = $connection->store_result();
+						if ($result) $result->free();
+					}
 				}
 			}
 		}

@@ -2,10 +2,10 @@
 <html lang="it">
 	<head>
 		<title>Game</title>
-		<link rel="icon" type="image/png" href="./gioco.png">
+		<link rel="icon" type="image/png" href="public/assets/gioco.png">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="public/css/gioco.css">
 	</head>
 	<body>
 		<section class="grid">
@@ -32,7 +32,7 @@
 			</div>
 			<button id="newGameButton" class="border"  onclick="newGame()">Reset</button>
 		</section>
-		<script src="gioco.js"></script>
+		<script src="public/js/gioco.js"></script>
 	</body>
 </html>
 
