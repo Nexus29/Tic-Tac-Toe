@@ -29,7 +29,7 @@
 			<h1 class="titolo">TIC TAC TOE</h1>
 			<div class="border neon">
 				<?php if(!isset($_SESSION['username'])): ?>
-					<h1>Login</h1>
+					<h1 class="login">Login</h1>
 					<?php if($errorMsg) echo "<p class='error' style='color:red;'>$errorMsg</p>"; ?>
 					
 					<form action="src/login_process.php" method="POST">
@@ -39,7 +39,7 @@
 						<input type="password" name="password" id="pass" class="neon" required>
 						<div style="margin-top:20px;">
 							<button type="submit">Log In</button>
-							<a href="register.php" style="color:#0ff; margin-left:15px;">Registrati</a>
+							<a href="register.php" class="ins">Registrati</a>
 						</div>
 					</form>
 				<?php else: ?>
@@ -47,11 +47,11 @@
 						<p>Benvenuto, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>!</p>
 						
 						<div style="margin-bottom:15px;">
-							<a href="gioco.php" style="display:inline-block; padding:10px 20px; background:#0ff; color:#000; text-decoration:none; font-weight:bold; border-radius:5px;">Inizia Partita</a>
+							<a href="gioco.php" class="ins">Inizia Partita</a>
 						</div>
 
 						<form method="post">
-							<input type='submit' name='logout' value='Logout' class='logout' style="background:none; border:none; color:red; cursor:pointer; text-decoration:underline;">
+							<input type='submit' name='logout' value='Logout' class='logout ins'>
 						</form>
 					</div>
 				<?php endif; ?>
