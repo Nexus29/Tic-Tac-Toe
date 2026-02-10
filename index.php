@@ -44,14 +44,25 @@
 					</form>
 				<?php else: ?>
 					<div class="logged-in">
+						<?php
+							$userId = $_SESSION['user_id'];
+							$statsQuery = "SELECT COUNT(*) as total_wins FROM partite 
+										WHERE partite_idGiocatore = '$userId' 
+										AND partite_risultato = 1";
+							
+							$statsResult = $connection->query($statsQuery);
+							$stats = $statsResult->fetch_assoc();
+							$wins = $stats['total_wins'];
+						?>
 						<p>Benvenuto, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>!</p>
-						
+						<p style="color: #0ff; margin-bottom: 20px;">
+							Vittorie totali: <strong><?php echo $wins; ?></strong>
+						</p>
 						<div style="margin-bottom:15px;">
-							<a href="gioco.php" class="ins">Inizia Partita</a>
+							<a href="gioco.php" style="display:inline-block; padding:10px 20px; background:#0ff; color:#000; text-decoration:none; font-weight:bold; border-radius:5px;">Inizia Partita</a>
 						</div>
-
 						<form method="post">
-							<input type='submit' name='logout' value='Logout' class='logout ins'>
+							<input type='submit' name='logout' value='Logout' class='logout' style="background:none; border:none; color:red; cursor:pointer; text-decoration:underline;">
 						</form>
 					</div>
 				<?php endif; ?>

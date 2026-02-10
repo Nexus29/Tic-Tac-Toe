@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.3deb1
+-- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 09, 2026 at 12:02 PM
--- Server version: 11.8.5-MariaDB-3 from Debian
--- PHP Version: 8.4.16
+-- Host: localhost
+-- Generation Time: Feb 10, 2026 at 06:52 PM
+-- Server version: 12.1.2-MariaDB
+-- PHP Version: 8.5.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,7 +49,7 @@ INSERT INTO `giocatori` (`giocatori_idGiocatore`, `giocatori_username`, `giocato
 CREATE TABLE `partite` (
   `partite_idPartita` int(11) NOT NULL,
   `partite_idGiocatore` int(11) NOT NULL,
-  `partite_vittorie` int(1) NOT NULL
+  `partite_risultato` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -76,7 +76,7 @@ ALTER TABLE `partite`
 -- AUTO_INCREMENT for table `giocatori`
 --
 ALTER TABLE `giocatori`
-  MODIFY `giocatori_idGiocatore` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `giocatori_idGiocatore` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `partite`

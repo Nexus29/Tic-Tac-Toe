@@ -2,7 +2,7 @@
 // inizializzazione base e dichiarazione
 $host = "localhost";
 $username = "root";
-$password = "Wrpowered01";
+$password = "root";
 $dbname = "tictactoe";
 // in caso vuoi fare come in correzione usa il messaggio su discord delle ore 20:09
 
