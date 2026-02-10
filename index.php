@@ -113,12 +113,12 @@
 					
 					}
 
-					if(isset($_SESSION['online']))
-					{
-						header("Location: ./Gioco/gioco.php");
-					}
-					else
-					{
+					// if(isset($_SESSION['online']))
+					// {
+					// 	header("Location: ./Gioco/gioco.php");
+					// }
+					// else
+					// {
 						if(isset($_POST['username']) || isset($_POST['password']))
 							echo "<p class='error'>Username o password non validi</p> <br>";
 							echo "<h1>Login</h1>
@@ -132,7 +132,7 @@
 									<input type='submit' name='logout' value='Logout' class='logout'>
 									<input type='submit' value='Gioca'>
 								</form>";
-					}
+					// }
 		?>
 			</div>
 		</section>

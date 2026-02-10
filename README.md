@@ -2,6 +2,8 @@
 
 A professional, collaborative web-based Tic-Tac-Toe game. Originally a front-end prototype, this project has evolved into a dynamic Full-Stack application using **PHP** and **SQL** to manage user authentication, persistent game states, and match history.
 
+---
+
 ## 👥 Meet the Team
 
 With the transition to a server-side architecture, the team has been streamlined to focus on core development, database management, and system flow.
@@ -34,7 +36,33 @@ With the transition to a server-side architecture, the team has been streamlined
 
 ## 📂 Application Structure
 
-The application is organized into a modular flow powered by a PHP backend:
+```text
+/tic-tac-toe-project
+│
+├── /config                  # Sensitive backend configurations
+│   └── connessione.php      # Database connection logic
+│
+├── /public                  # Files accessible to the browser
+│   ├── /assets              # Images and visual media (index.png, gioco.png)
+│   ├── /css                 # All stylesheets (style.css, gioco.css)
+│   └── /js                  # Client-side logic (index.js, gioco.js)
+│
+├── /src                    # Core PHP logic (Giovanni & Rolando)
+│   ├── login_process.php    # Handles Gaia's login logic
+│   └── game_logic.php       # Giovanni's win/draw logic
+│
+├── /database                # Database scripts (Gaia)
+│   └── tictactoe.sql        # Database schema export
+│
+├── /docs                    # Project documentation
+│   └── documentazione.docx
+│
+├── index.php                # Main Entry Point (Gaia's login page)
+├── gioco.php                # Main Game Page (Giovanni/Rolando)
+├── README.md                # Project overview
+└── LICENSE                  # Legal permissions
+
+```
 
 1. **Welcome & Login (Gaia):** User entry point featuring the database-connected login system.
 2. **Game Board (Giovanni):** The interactive grid where moves are validated and processed by the server.
