@@ -67,14 +67,6 @@ body {
     0 0 30px rgba(51, 0, 255, 0.392);
 }
 
-/*game count*/
-#game-count{
-  margin: 0 10px;
-  text-align: center;
-  font-size: 20px;
-  margin-top: 10px;
-}
-
 /* Pulsanti Login, Logout, Inizia Partita e link Registrati */
 form button,
 form .ins,
@@ -200,4 +192,23 @@ form div {
       0 0 8px #0ff,
       0 0 16px #0ff,
       0 0 24px #0ff;
+}
+
+.cont{
+  padding: 20px 20px;
+}
+
+a.reg:link,
+a.reg:visited {
+  color: #0ff !important;
+  text-decoration: none;
+}
+
+a.reg:hover,
+a.reg:active {
+  color: #0ff !important;
+  text-shadow:
+    0 0 8px #0ff,
+    0 0 16px #0ff,
+    0 0 24px #0ff;
 }

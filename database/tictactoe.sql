@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.3
+-- version 5.2.3deb1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 10, 2026 at 06:52 PM
--- Server version: 12.1.2-MariaDB
--- PHP Version: 8.5.2
+-- Host: localhost:3306
+-- Generation Time: Feb 11, 2026 at 09:18 AM
+-- Server version: 11.8.3-MariaDB-1+b1 from Debian
+-- PHP Version: 8.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,7 +38,8 @@ CREATE TABLE `giocatori` (
 --
 
 INSERT INTO `giocatori` (`giocatori_idGiocatore`, `giocatori_username`, `giocatori_password`) VALUES
-(1, 'gaia', '1234');
+(1, 'gaia', '1234'),
+(2, 'test', 'test');
 
 -- --------------------------------------------------------
 
@@ -51,6 +52,13 @@ CREATE TABLE `partite` (
   `partite_idGiocatore` int(11) NOT NULL,
   `partite_risultato` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `partite`
+--
+
+INSERT INTO `partite` (`partite_idPartita`, `partite_idGiocatore`, `partite_risultato`) VALUES
+(1, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -82,7 +90,7 @@ ALTER TABLE `giocatori`
 -- AUTO_INCREMENT for table `partite`
 --
 ALTER TABLE `partite`
-  MODIFY `partite_idPartita` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `partite_idPartita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
