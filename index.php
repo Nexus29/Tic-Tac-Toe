@@ -13,6 +13,9 @@
 
 	if(isset($_GET['error']) && $_GET['error'] == 'invalid_credentials')
 		$errorMsg = "Username o password errati.";
+
+	if(isset($_GET['error']) && $_GET['error'] == 'captcha')
+		$errorMsg = "Completa il reCAPTCHA.";
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +26,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="public/css/index.css">
+
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</head>
 	<body>
 		<section class="welcome">
@@ -37,6 +42,7 @@
 						<input type="text" name="username" id="user" class="neon" required>
 						<label for="pass">Password:</label>
 						<input type="password" name="password" id="pass" class="neon" required>
+						<div class="g-recaptcha" data-sitekey="6LdKZussAAAAAA9GXtu0BUQA5XnjbDLXnJl3DYu_"></div>
 						<div style="margin-top:20px;">
 							<button type="submit">Log In</button>
 							<a href="register.php" class="ins">Registrati</a>

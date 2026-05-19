@@ -3,6 +3,38 @@
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
+		//recaptcha for the login
+		$recaptcha = $_POST['g-recaptcha-response'];
+
+		$secretKey = "6LdKZussAAAAAIoTXkaEjo90jRJfO6iYBcpbaiFY";
+
+		$url = "https://www.google.com/recaptcha/api/siteverify";
+
+		$data = [
+			'secret' => $secretKey,
+			'response' => $recaptcha
+		];
+
+		$options = [
+			'http' => [
+				'method'  => 'POST',
+				'header'  => "Content-type: application/x-www-form-urlencoded",
+				'content' => http_build_query($data)
+			]
+		];
+
+		$context = stream_context_create($options);
+
+		$verify = file_get_contents($url, false, $context);
+
+		$captcha_success = json_decode($verify);
+
+		if (!$captcha_success->success)
+		{
+			header("Location: ../index.php?error=captcha");
+			exit();
+		}
+
 		// Stessa cosa di registger
 		$user = $connection->real_escape_string($_POST['username']);
 		$pass = $connection->real_escape_string($_POST['password']);
