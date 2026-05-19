@@ -11,6 +11,9 @@
 
 	$errorMsg = "";
 
+	if(isset($_GET['error']) && $_GET['error'] == 'rate_limit')
+		$errorMsg = "Troppi tentativi di accesso. Riprova tra 2 minuti.";
+
 	if(isset($_GET['error']) && $_GET['error'] == 'invalid_credentials')
 		$errorMsg = "Username o password errati.";
 

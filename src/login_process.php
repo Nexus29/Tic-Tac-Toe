@@ -1,8 +1,15 @@
 <?php
 	require_once __DIR__ . '/../config/connection.php';
+	require_once __DIR__ . '/rate_limit.php';
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
+		if (!checkRateLimit($connection, 5, 2)) {
+			header("Location: ../index.php?error=rate_limit");
+			exit();
+		}
+
+		//kneed to test it with an else here but i can't resolve the PDOM captcha...
 		//recaptcha for the login
 		$recaptcha = $_POST['g-recaptcha-response'];
 

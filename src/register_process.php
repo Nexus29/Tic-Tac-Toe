@@ -14,9 +14,38 @@
 
 				if ($_SERVER["REQUEST_METHOD"] == "POST")
 				{
-					// Misura di sicurezza per prevenire code injection
 					$user = $connection->real_escape_string($_POST['username']);
-					$pass = $connection->real_escape_string($_POST['password']);
+					$pass = $_POST['password'];
+
+					// ---- SERVER-SIDE PASSWORD VALIDATION ----
+					$errors = [];
+
+					if (strlen($pass) < 8) {
+						$errors[] = "Minimo 8 caratteri";
+					}
+					if (!preg_match('/[A-Z]/', $pass)) {
+						$errors[] = "Una lettera maiuscola";
+					}
+					if (!preg_match('/[a-z]/', $pass)) {
+						$errors[] = "Una lettera minuscola";
+					}
+					if (!preg_match('/[0-9]/', $pass)) {
+						$errors[] = "Un numero";
+					}
+					if (!preg_match('/[^A-Za-z0-9]/', $pass)) {
+						$errors[] = "Un carattere speciale";
+					}
+
+					if (!empty($errors)) {
+						echo "<h3>Errore di validazione password:</h3><ul style='color:red; text-align:left; margin-bottom: 20px;'>";
+						foreach ($errors as $error) {
+							echo "<li>❌ $error</li>";
+						}
+						echo "</ul>";
+						die("<a class='reg' href='../register.php'>Torna indietro e riprova</a>");
+					}
+
+					$passEscaped = $connection->real_escape_string($pass);
 
 					try
 					{
@@ -28,9 +57,9 @@
 							die("Errore: Questo username è già in uso. <a class='reg' href='../register.php'>Riprova</a>");
 
 						$insertSql = "INSERT INTO giocatori (giocatori_username, giocatori_password) 
-									VALUES ('$user', '$pass')";
+									VALUES ('$user', '$passEscaped')";
 
-						// Immentto l'utente nel database
+						// Immetto l'utente nel database
 						if ($connection->query($insertSql))
 							echo "Registrazione completata! Ora puoi <a class='reg' href='../index.php'>effettuare il login</a>";
 						else

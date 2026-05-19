@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.3deb1
+-- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 11, 2026 at 09:18 AM
--- Server version: 11.8.3-MariaDB-1+b1 from Debian
--- PHP Version: 8.4.11
+-- Host: localhost
+-- Generation Time: May 19, 2026 at 11:58 AM
+-- Server version: 12.2.2-MariaDB
+-- PHP Version: 8.5.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,8 +38,19 @@ CREATE TABLE `giocatori` (
 --
 
 INSERT INTO `giocatori` (`giocatori_idGiocatore`, `giocatori_username`, `giocatori_password`) VALUES
-(1, 'gaia', '1234'),
-(2, 'test', 'test');
+(1, 'gaia', '1234');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login_attempts`
+--
+
+CREATE TABLE `login_attempts` (
+  `id` int(11) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `attempt_time` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -71,6 +82,14 @@ ALTER TABLE `giocatori`
   ADD PRIMARY KEY (`giocatori_idGiocatore`);
 
 --
+-- Indexes for table `login_attempts`
+--
+ALTER TABLE `login_attempts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ip_address` (`ip_address`),
+  ADD KEY `attempt_time` (`attempt_time`);
+
+--
 -- Indexes for table `partite`
 --
 ALTER TABLE `partite`
@@ -84,13 +103,19 @@ ALTER TABLE `partite`
 -- AUTO_INCREMENT for table `giocatori`
 --
 ALTER TABLE `giocatori`
-  MODIFY `giocatori_idGiocatore` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `giocatori_idGiocatore` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `login_attempts`
+--
+ALTER TABLE `login_attempts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `partite`
 --
 ALTER TABLE `partite`
-  MODIFY `partite_idPartita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `partite_idPartita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
