@@ -8,13 +8,10 @@
 			header("Location: ../index.php?error=rate_limit");
 			exit();
 		}
-
-		//kneed to test it with an else here but i can't resolve the PDOM captcha...
-		//recaptcha for the login
-		$recaptcha = $_POST['g-recaptcha-response'];
+		
+		$recaptcha = $_POST['g-recaptcha-response'] ?? '';
 
 		$secretKey = "6LdKZussAAAAAIoTXkaEjo90jRJfO6iYBcpbaiFY";
-
 		$url = "https://www.google.com/recaptcha/api/siteverify";
 
 		$data = [
@@ -31,18 +28,17 @@
 		];
 
 		$context = stream_context_create($options);
-
 		$verify = file_get_contents($url, false, $context);
-
 		$captcha_success = json_decode($verify);
 
-		if (!$captcha_success->success)
+		// 3. Evaluate the Captcha results
+		if (!$captcha_success || !$captcha_success->success)
 		{
 			header("Location: ../index.php?error=captcha");
 			exit();
 		}
 
-		// Stessa cosa di registger
+		// 4. If rate limit passes AND captcha passes, proceed to database check
 		$user = $connection->real_escape_string($_POST['username']);
 		$pass = $connection->real_escape_string($_POST['password']);
 
@@ -69,7 +65,6 @@
 				header("Location: ../index.php?error=invalid_credentials");
 				exit();
 			}
-
 		}
 		catch (Exception $e)
 		{
