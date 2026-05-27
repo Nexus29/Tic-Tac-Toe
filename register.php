@@ -51,6 +51,15 @@
 				method="POST"
 				autocomplete="off"
 			>
+			<div class="input-group">
+				<label>Email</label>
+				<input 
+					type="email" 
+					required 
+					name="email"
+					placeholder="Esempio@gmail.com"
+					autocomplete="off">
+			</div>
 
 				<div class="input-group">
 

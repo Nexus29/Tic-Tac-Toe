@@ -19,7 +19,7 @@ function saveResult(result)
 	const formData = new FormData;
 	formData.append('result', result);
 
-	fetch('src/game_logic.php', {
+	return fetch('src/game_logic.php', {
 		method: 'POST',
 		body: formData
 	});
@@ -34,7 +34,6 @@ function botMove()
 	if (availableCells.length > 0)
 	{
 		const randomCell = availableCells[Math.floor(Math.random() * availableCells.length)];
-		// Delay artificiale fatto per emulare un ragionamento in questo modo il bot non risponde instant
 		setTimeout(() => {
 			randomCell.click();
 		}, 600);
@@ -68,18 +67,23 @@ function handleCellClick()
 		gameActive = false;
 		const winner = (currentPlayer === 'X') ? player1 : player2;
 		const result= (currentPlayer === 'X') ? 'win' : 'loss';
-		saveResult(result);
-		alert(`🎉 Vittoria per ${winner}!`);
-		window.location.href = 'index.php';
+		saveResult(result).then(() => {
+			alert(`🎉 Vittoria per ${winner}!`);
+			window.location.href = 'index.php';
+		}).catch(err => {
+			console.error("Failed to save match:", err);
+			window.location.href = 'index.php';
+		});
 		return;
 	}
 
 	if (checkDraw())
 	{
 		gameActive = false;
-		saveResult('loss');
-		alert(`🤝 Pareggio tra ${player1} e ${player2}!`);
-		window.location.href = 'index.php';
+		saveResult('loss').then(() => {
+			alert(`🤝 Pareggio tra ${player1} e ${player2}!`);
+			window.location.href = 'index.php';
+		});
 		return;
 	}
 

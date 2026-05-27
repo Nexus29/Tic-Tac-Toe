@@ -55,13 +55,13 @@
 					<div class="logged-in">
 						<?php
 							$userId = $_SESSION['user_id'];
-							$statsQuery = "SELECT COUNT(*) as total_wins FROM partite 
-										WHERE partite_idGiocatore = '$userId' 
-										AND partite_risultato = 1";
-							
-							$statsResult = $connection->query($statsQuery);
+							$stmt = $connection->prepare("SELECT COUNT(*) as total_wins FROM partite WHERE partite_idGiocatore = ? AND partite_risultato = 1");
+							$stmt->bind_param("i", $userId);
+							$stmt->execute();
+							$statsResult = $stmt->get_result();
 							$stats = $statsResult->fetch_assoc();
 							$wins = $stats['total_wins'];
+							$stmt->close();
 						?>
 						<p>Benvenuto, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>!</p>
 						<p style="color: #0ff; margin-bottom: 20px;">

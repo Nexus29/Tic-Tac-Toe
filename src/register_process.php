@@ -10,12 +10,15 @@
 	<div class="welcome border neon">
 		<div class="cont">
 			<?php
+				ini_set('pcre.jit', '0');
 				require_once __DIR__ . '/../config/connection.php';
 
 				if ($_SERVER["REQUEST_METHOD"] == "POST")
 				{
+
 					$user = $connection->real_escape_string($_POST['username']);
 					$pass = $_POST['password'];
+					$email = $_POST['email'];
 
 					// ---- SERVER-SIDE PASSWORD VALIDATION ----
 					$errors = [];
@@ -44,7 +47,7 @@
 						echo "</ul>";
 						die("<a class='reg' href='../register.php'>Torna indietro e riprova</a>");
 					}
-
+					$_SESSION['temp_email'] = $_POST['email'];
 					$passEscaped = $connection->real_escape_string($pass);
 
 					try
@@ -56,8 +59,8 @@
 						if ($result->num_rows > 0)
 							die("Errore: Questo username è già in uso. <a class='reg' href='../register.php'>Riprova</a>");
 
-						$insertSql = "INSERT INTO giocatori (giocatori_username, giocatori_password) 
-									VALUES ('$user', '$passEscaped')";
+						$insertSql = "INSERT INTO giocatori (giocatori_username, giocatori_password, giocatori_email) 
+									VALUES ('$user', '$passEscaped', '$email')";
 
 						// Immetto l'utente nel database
 						if ($connection->query($insertSql))

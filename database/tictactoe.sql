@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.3
+-- version 5.2.3deb1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: May 19, 2026 at 11:58 AM
--- Server version: 12.2.2-MariaDB
--- PHP Version: 8.5.5
+-- Host: localhost:3306
+-- Generation Time: May 27, 2026 at 07:54 AM
+-- Server version: 11.8.6-MariaDB-2 from Debian
+-- PHP Version: 8.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,15 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `giocatori` (
   `giocatori_idGiocatore` int(11) NOT NULL,
   `giocatori_username` varchar(64) NOT NULL,
-  `giocatori_password` varchar(32) NOT NULL
+  `giocatori_password` varchar(32) NOT NULL,
+  `giocatori_email` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `giocatori`
 --
 
-INSERT INTO `giocatori` (`giocatori_idGiocatore`, `giocatori_username`, `giocatori_password`) VALUES
-(1, 'gaia', '1234');
+INSERT INTO `giocatori` (`giocatori_idGiocatore`, `giocatori_username`, `giocatori_password`, `giocatori_email`) VALUES
+(1, 'gaia', '1234', 'gaia.faberi@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -109,7 +110,7 @@ ALTER TABLE `giocatori`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `partite`

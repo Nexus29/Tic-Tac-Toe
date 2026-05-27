@@ -1,6 +1,14 @@
 <?php
 	require_once __DIR__ . '/../config/connection.php';
 	require_once __DIR__ . '/rate_limit.php';
+	// 1. Carica i file necessari (Verifica che i percorsi siano esatti rispetto a dove si trova questo script)
+	require __DIR__ . '/../PHPMailer/src/Exception.php';
+	require __DIR__ . '/../PHPMailer/src/PHPMailer.php';
+	require __DIR__ . '/../PHPMailer/src/SMTP.php';
+
+	// 2. Importa i Namespace (NOTARE: Senza virgolette e con backslash \)
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
@@ -53,12 +61,36 @@
 			if ($result->num_rows === 1)
 			{
 				$row = $result->fetch_assoc();
-				
-				$_SESSION['user_id'] = $row['giocatori_idGiocatore'];
-				$_SESSION['username'] = $row['giocatori_username'];
 
-				header("Location: ../gioco.php");
-				exit();
+				            // Generiamo il codice
+				$auth_code = random_int(100000, 999999);
+				$_SESSION['temp_email'] = $row['giocatori_email'];
+				// Invio Email con PHPMailer
+				$mail = new PHPMailer(true);
+				$mail->isSMTP();
+				$mail->Host       = 'smtp.gmail.com'; 
+				$mail->SMTPAuth   = true;
+				$mail->Username   = 'TicTacToeManagement@gmail.com'; 
+				$mail->Password   = 'qecs fpkz kwte vdut';
+				$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+				$mail->Port       = 587;
+
+				$mail->setFrom('TicTacToeManagement@gmail.com', 'Sicurezza Gioco');
+				$mail->addAddress($_SESSION['temp_email']);
+				$mail->isHTML(true);
+				$mail->Subject = 'Codice di accesso';
+				$mail->Body    = "Il tuo codice di verifica è: <b>$auth_code</b>";
+
+				$mail->send();
+
+				// Salviamo i dati temporaneamente in sessione
+				$_SESSION['temp_username'] = $row['giocatori_username'];
+				$_SESSION['temp_id'] = $row['giocatori_idGiocatore'];
+				$_SESSION['auth_code'] = $auth_code;
+
+				// Mandiamo l'utente alla pagina dove inserirà il codice
+				header("Location: ./verifica.php");
+           		 exit();
 			}
 			else
 			{
